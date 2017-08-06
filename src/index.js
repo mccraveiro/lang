@@ -1,3 +1,5 @@
+const parser = require('./parser')
+
 const lexer = sourcecode =>
   sourcecode.split(/\s+/)
     .filter(token => token.length > 0)
@@ -9,17 +11,19 @@ const lexer = sourcecode =>
 
 const parse = (sourcecode) => {
   const tokens = lexer(sourcecode)
+  const AST = parser(tokens)
+
   const symbols = {
     add: '+',
     subtract: '-'
   }
 
   let output = ''
-  output += tokens[1].value
+  output += AST[0].arguments[0].value
   output += ' '
-  output += symbols[tokens[0].value]
+  output += symbols[AST[0].name]
   output += ' '
-  output += tokens[2].value
+  output += AST[0].arguments[1].value
   output += '\n'
 
   return output
