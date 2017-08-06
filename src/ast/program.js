@@ -1,11 +1,12 @@
 const BlockStatement = require('./block-statement')
 
 class Program {
-  static parser(tokens) {
-    return {
-      type: 'Program',
-      body: BlockStatement.parser(tokens),
-    }
+  constructor (tokens) {
+    this.body = new BlockStatement(tokens)
+  }
+
+  transform() {
+    return this.body.transform()
   }
 }
 

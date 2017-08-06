@@ -1,3 +1,3 @@
 const Program = require('./ast/program')
 
-module.exports = Program.parser
+module.exports = tokens => new Program(tokens)
