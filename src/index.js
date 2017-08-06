@@ -1,7 +1,7 @@
 const lexer = require('./lexer')
 const Program = require('./ast/program')
 
-const parse = (sourcecode) => {
+const compile = (sourcecode) => {
   const tokens = lexer(sourcecode)
   const AST = new Program(tokens)
 
@@ -9,5 +9,5 @@ const parse = (sourcecode) => {
 }
 
 module.exports = {
-  parse
+  compile
 }
