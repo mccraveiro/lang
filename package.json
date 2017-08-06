@@ -1,0 +1,23 @@
+{
+  "name": "lang",
+  "version": "1.0.0",
+  "description": "This is an experimental language. Do not use on production.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mccraveiro/lang.git"
+  },
+  "author": "Mateus Craveiro <mccraveiro@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mccraveiro/lang/issues"
+  },
+  "homepage": "https://github.com/mccraveiro/lang#readme",
+  "dependencies": {}
+}
