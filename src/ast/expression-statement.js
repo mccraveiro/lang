@@ -55,7 +55,16 @@ class ExpressionStatement {
       subtract: '-',
     }
 
-    return `${this.arguments[0].generate()} ${symbols[this.name]} ${this.arguments[1].generate()}`
+    let output = ''
+    output += '('
+    output += this.arguments[0].generate()
+    output += ' '
+    output += symbols[this.name]
+    output += ' '
+    output += this.arguments[1].generate()
+    output += ')'
+
+    return output
   }
 }
 
