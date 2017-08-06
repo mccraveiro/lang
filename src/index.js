@@ -19,11 +19,11 @@ const parse = (sourcecode) => {
   }
 
   let output = ''
-  output += AST[0].arguments[0].value
+  output += AST.body[0].arguments[0].value
   output += ' '
-  output += symbols[AST[0].name]
+  output += symbols[AST.body[0].name]
   output += ' '
-  output += AST[0].arguments[1].value
+  output += AST.body[0].arguments[1].value
   output += '\n'
 
   return output

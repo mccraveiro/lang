@@ -1,5 +1,8 @@
 module.exports = (tokens) => {
-  const AST = []
+  const AST = {
+    type: 'Program',
+    body: [],
+  }
 
   while (tokens.length > 0) {
     const currentToken = tokens.shift()
@@ -31,7 +34,7 @@ module.exports = (tokens) => {
               value: argumentB.value
             })
 
-            AST.push(expression)
+            AST.body.push(expression)
           } else {
             throw 'add should receive two numbers as arguments'
           }
@@ -59,7 +62,7 @@ module.exports = (tokens) => {
               value: argumentB.value
             })
 
-            AST.push(expression)
+            AST.body.push(expression)
           } else {
             throw 'subtract should receive two numbers as arguments'
           }
