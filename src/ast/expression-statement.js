@@ -13,6 +13,7 @@ class ExpressionStatement {
 
       switch (currentToken.value) {
         case 'add':
+        case 'divide':
         case 'subtract':
           this.name = currentToken.value
 
@@ -52,6 +53,7 @@ class ExpressionStatement {
   generate() {
     const symbols = {
       add: '+',
+      divide: '/',
       subtract: '-',
     }
 
