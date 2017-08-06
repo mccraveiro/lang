@@ -4,7 +4,7 @@ class ExpressionStatement {
 
     this.arguments = []
 
-    if (currentToken.type === 'function') {
+    if (currentToken.type === 'name') {
       this.type = 'CallExpression'
       let argumentA
       let argumentB
@@ -32,7 +32,7 @@ class ExpressionStatement {
               type: 'NumberLiteral',
               value: argumentB.value
             })
-          } else if (argumentA.type === 'number' && argumentB.type === 'function') {
+          } else if (argumentA.type === 'number' && argumentB.type === 'name') {
             this.arguments.push({
               type: 'NumberLiteral',
               value: argumentA.value

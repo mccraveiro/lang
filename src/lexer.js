@@ -7,7 +7,7 @@ module.exports = sourcecode =>
       }
 
       if (isNaN(token)) {
-        return { type: 'function', value: token }
+        return { type: 'name', value: token }
       } else {
         return { type: 'number', value: token }
       }
