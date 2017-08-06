@@ -15,7 +15,7 @@ class BlockStatement {
         const argument = this.body[i - 1]
         // remove operator and argument
         this.body.splice(--i, 2)
-        this.body[i].arguments.push(argument)
+        this.body[i].arguments.unshift(argument)
       }
     }
   }
