@@ -40,6 +40,13 @@ class ExpressionStatement {
 
             tokens.unshift(argumentB)
             this.arguments.push(new ExpressionStatement(tokens))
+          } else if (argumentA.type === 'number' && argumentB.type === 'pipe') {
+            this.arguments.push({
+              type: 'NumberLiteral',
+              value: argumentA.value
+            })
+
+            tokens.unshift(argumentB)
           } else {
             throw new Error(`${currentToken.value} should receive two numbers as arguments`)
           }

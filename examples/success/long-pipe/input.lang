@@ -1,0 +1,7 @@
+subtract 2 3
+|> add 1
+|> subtract 1
+|> add 2
+|> subtract 2
+|> add 3
+|> subtract 3
