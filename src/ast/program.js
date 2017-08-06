@@ -5,8 +5,8 @@ class Program {
     this.body = new BlockStatement(tokens)
   }
 
-  transform() {
-    return this.body.transform()
+  generate() {
+    return this.body.generate().concat('\n')
   }
 }
 

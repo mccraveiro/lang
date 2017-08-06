@@ -1,15 +1,11 @@
 const lexer = require('./lexer')
-const parser = require('./parser')
-const transformer = require('./transformer')
-const generator = require('./generator')
+const Program = require('./ast/program')
 
 const parse = (sourcecode) => {
   const tokens = lexer(sourcecode)
-  const AST = parser(tokens)
-  const JavascriptAST = transformer(AST)
-  const output = generator(JavascriptAST)
+  const AST = new Program(tokens)
 
-  return output
+  return AST.generate()
 }
 
 module.exports = {

@@ -73,51 +73,15 @@ class BlockStatement {
     this.body = expressions
   }
 
-  transform() {
-    const body = []
-
-    while(this.body.length > 0) {
-      const node = this.body.shift()
-
-      switch (node.name) {
-        case 'add':
-          body.push({
-            type: 'BinaryExpression',
-            symbol: '+',
-            arguments: [
-              {
-                type: 'NumberLiteral',
-                value: node.arguments[0].value
-              },
-              {
-                type: 'NumberLiteral',
-                value: node.arguments[1].value
-              }
-            ]
-          })
-
-          break
-        case 'subtract':
-          body.push({
-            type: 'BinaryExpression',
-            symbol: '-',
-            arguments: [
-              {
-                type: 'NumberLiteral',
-                value: node.arguments[0].value
-              },
-              {
-                type: 'NumberLiteral',
-                value: node.arguments[1].value
-              }
-            ]
-          })
-
-          break
-      }
+  generate() {
+    const symbols = {
+      add: '+',
+      subtract: '-',
     }
 
-    return body
+    return this.body.map(
+      node => `${node.arguments[0].value} ${symbols[node.name]} ${node.arguments[1].value}`
+    ).join('\n')
   }
 }
 
