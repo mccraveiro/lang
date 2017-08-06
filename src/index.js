@@ -1,5 +1,6 @@
 const parser = require('./parser')
 const transformer = require('./transformer')
+const generator = require('./generator')
 
 const lexer = sourcecode =>
   sourcecode.split(/\s+/)
@@ -14,14 +15,7 @@ const parse = (sourcecode) => {
   const tokens = lexer(sourcecode)
   const AST = parser(tokens)
   const JavascriptAST = transformer(AST)
-
-  let output = ''
-  output += JavascriptAST.body[0].arguments[0].value
-  output += ' '
-  output += JavascriptAST.body[0].symbol
-  output += ' '
-  output += JavascriptAST.body[0].arguments[1].value
-  output += '\n'
+  const output = generator(JavascriptAST)
 
   return output
 }
