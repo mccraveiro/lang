@@ -1,6 +1,6 @@
 const identifyToken = (token) => {
-  const NAME = /[a-zA-Z]+/
-  const NUMBER = /[0-9]+/
+  const NAME = /^[a-zA-Z]+$/
+  const NUMBER = /^[0-9]+(\.[0-9]+)?$/
 
   if (token === '|>') {
     return {
