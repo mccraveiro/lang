@@ -10,5 +10,5 @@ This is an experimental language. Do not use on production.
 
 ## Examples
 
-Check `./examples`.
+Check [examples](https://github.com/mccraveiro/lang/tree/master/examples)
 
