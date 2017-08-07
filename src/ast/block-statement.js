@@ -6,7 +6,9 @@ class BlockStatement {
     this.body = []
 
     while (tokens.length > 0) {
-      if (tokens[1] && tokens[1].type === 'colon') {
+      if (tokens[0].type === 'comment') {
+        tokens.shift()
+      } else if (tokens[1] && tokens[1].type === 'colon') {
         this.body.push(new DeclarationStatement(tokens))
       } else {
         this.body.push(new ExpressionStatement(tokens))
@@ -25,7 +27,7 @@ class BlockStatement {
     }
   }
 
-  generate() {
+  generate () {
     return this.body.map(expression => expression.generate()).join('\n')
   }
 }

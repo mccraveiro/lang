@@ -35,11 +35,19 @@ const identifyToken = (token) => {
   throw new Error(`Unkown token ${token}`)
 }
 
-const lineLexer = sourcecode =>
-  sourcecode.split(' ')
+const lineLexer = sourcecode => {
+  if (sourcecode.startsWith('#')) {
+    return [{
+      type: 'comment',
+      value: sourcecode,
+    }]
+  }
+
+  return sourcecode.split(' ')
     .filter(token => token.length > 0)
     .map(identifyToken)
     .reduce((tokens, results) => tokens.concat(results), [])
+}
 
 module.exports = sourcecode =>
   sourcecode.split('\n')
