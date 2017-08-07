@@ -1,12 +1,15 @@
 const NumberLiteral = require('./number-literal')
 
 class ExpressionStatement {
-  constructor(tokens) {
+  constructor (tokens) {
     const currentToken = tokens.shift()
 
     this.arguments = []
 
-    if (currentToken.type === 'name') {
+    if (currentToken.type === 'number') {
+      this.type = 'Literal'
+      this.value = currentToken.value
+    } else if (currentToken.type === 'name') {
       this.type = 'CallExpression'
       let argumentA
       let argumentB
@@ -50,7 +53,11 @@ class ExpressionStatement {
     }
   }
 
-  generate() {
+  generate () {
+    if (this.type === 'Literal') {
+      return this.value
+    }
+
     const symbols = {
       add: '+',
       divide: '/',

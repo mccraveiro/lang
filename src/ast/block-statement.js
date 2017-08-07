@@ -1,3 +1,4 @@
+const DeclarationStatement = require('./declaration-statement')
 const ExpressionStatement = require('./expression-statement')
 
 class BlockStatement {
@@ -5,7 +6,11 @@ class BlockStatement {
     this.body = []
 
     while (tokens.length > 0) {
-      this.body.push(new ExpressionStatement(tokens))
+      if (tokens[1] && tokens[1].type === 'colon') {
+        this.body.push(new DeclarationStatement(tokens))
+      } else {
+        this.body.push(new ExpressionStatement(tokens))
+      }
     }
 
     for (let i = 0; i < this.body.length; i++) {

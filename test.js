@@ -12,8 +12,8 @@ examples.forEach((example) => {
   const output = readFileSync(`./examples/success/${example}/output.js`, encoding)
   const actualOutput = compile(input)
 
-  equal(output, actualOutput)
-  console.log('.')
+  equal(output, actualOutput, `Test name: ${example}`)
+  process.stdout.write('.')
 })
 
 const failExamples = readdirSync('./examples/fail', encoding)
@@ -24,6 +24,8 @@ failExamples.forEach((example) => {
   const doParse = () => compile(input)
   const expectedError = new RegExp(output.split('\n')[0])
 
-  throws(doParse, expectedError)
-  console.log('.')
+  throws(doParse, expectedError, `Test name: ${example}`)
+  process.stdout.write('.')
 })
+
+process.stdout.write('\n')
