@@ -1,9 +1,9 @@
-#! /usr/bin/node
+#! /usr/bin/env node
 
 /* eslint-disable no-eval */
 
 const repl = require('repl')
-const { compile } = require('./src')
+const { compile } = require('../src')
 
 const evaluate = (cmd, context, filename, callback) => {
   const code = compile(cmd)

@@ -6,8 +6,12 @@
   "directories": {
     "example": "examples"
   },
+  "bin": {
+    "lang": "./bin/index.js",
+    "lang-repl": "./bin/repl.js"
+  },
   "scripts": {
-    "test": "./test.js"
+    "test": "./scripts/test.js"
   },
   "repository": {
     "type": "git",
