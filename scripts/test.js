@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const { readdirSync, readFileSync } = require('fs')
-const { equal, throws } = require('assert')
+const { equal } = require('assert')
 const { resolve } = require('path')
 const { compile } = require('../src')
 
@@ -23,17 +23,6 @@ listExamples('success')
     const actualOutput = compile(input)
 
     equal(output, actualOutput, `Test name: ${example}`)
-    process.stdout.write('.')
-  })
-
-// Failures tests
-listExamples('fail')
-  .forEach((example) => {
-    const { input, output } = loadExample('fail', example)
-    const doParse = () => compile(input)
-    const expectedError = new RegExp(output.split('\n')[0])
-
-    throws(doParse, expectedError, `Test name: ${example}`)
     process.stdout.write('.')
   })
 
