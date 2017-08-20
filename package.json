@@ -7,8 +7,7 @@
     "example": "examples"
   },
   "bin": {
-    "lang": "./bin/index.js",
-    "lang-repl": "./bin/repl.js"
+    "lang": "./bin/index.js"
   },
   "scripts": {
     "test": "./scripts/test.js"
