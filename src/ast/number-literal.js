@@ -1,5 +1,5 @@
 class NumberLiteral {
-  constructor(tokens) {
+  constructor (tokens) {
     const token = tokens.shift()
 
     if (token.type !== 'number') {
@@ -9,7 +9,7 @@ class NumberLiteral {
     this.value = token.value
   }
 
-  generate() {
+  generate () {
     return this.value
   }
 }

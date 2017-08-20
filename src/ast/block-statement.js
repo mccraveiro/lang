@@ -15,13 +15,14 @@ class BlockStatement {
       }
     }
 
-    for (let i = 0; i < this.body.length; i++) {
+    for (let i = 0; i < this.body.length; i += 1) {
       const expression = this.body[i]
 
       if (expression.type === 'PipeExpression') {
         const argument = this.body[i - 1]
         // remove operator and argument
-        this.body.splice(--i, 2)
+        i -= 1
+        this.body.splice(i, 2)
         this.body[i].arguments.unshift(argument)
       }
     }

@@ -35,7 +35,7 @@ const identifyToken = (token) => {
   throw new Error(`Unkown token ${token}`)
 }
 
-const lineLexer = sourcecode => {
+const lineLexer = (sourcecode) => {
   if (sourcecode.startsWith('#')) {
     return [{
       type: 'comment',

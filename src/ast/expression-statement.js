@@ -45,6 +45,8 @@ class ExpressionStatement {
           }
 
           break
+        default:
+          throw new Error(`Unknown function ${currentToken.value}`)
       }
     } else if (currentToken.type === 'pipe') {
       this.type = 'PipeExpression'

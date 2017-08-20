@@ -1,7 +1,7 @@
 const ExpressionStatement = require('./expression-statement')
 
 class DeclarationStatement {
-  constructor(tokens) {
+  constructor (tokens) {
     const nameToken = tokens.shift()
 
     if (nameToken.type !== 'name') {
@@ -18,7 +18,7 @@ class DeclarationStatement {
     this.expression = new ExpressionStatement(tokens)
   }
 
-  generate() {
+  generate () {
     return `const ${this.name} = ${this.expression.generate()};`
   }
 }

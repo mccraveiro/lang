@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+/* eslint-disable no-eval, no-console */
 
 const { readFileSync } = require('fs')
 const { compile } = require('../src')
